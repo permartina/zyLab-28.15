@@ -1,8 +1,6 @@
 #include <iostream>
 using namespace  std;
 
-
-
 // PlaylistNode.cpp FILE
 
 #include "PlaylistNode.h"  
@@ -22,5 +20,17 @@ std::string PlaylistNode::GetSongName() const {
 } 
 std::string PlaylistNode::GetArtistName() const { 
     return artistName; 
+} 
+int PlaylistNode::GetSongLength() const { 
+    return songLength; 
+} 
+
+PlaylistNode* PlaylistNode::GetNext() const { 
+    return nextNodePtr; 
+} 
+void PlaylistNode::InsertAfter(PlaylistNode* nodePtr) { 
+    PlaylistNode* tmpPtr = nextNodePtr; 
+    nextNodePtr = nodePtr; 
+    nodePtr->nextNodePtr = tmpPtr; 
 } 
   
