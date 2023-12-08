@@ -13,4 +13,14 @@ PlaylistNode::PlaylistNode(string id, string name, string artist, int length)
 
     : uniqueID(id), songName(name), artistName(artist), songLength(length), nextNodePtr(nullptr) {} 
 
+std::string PlaylistNode::GetID() const { 
+    return uniqueID; 
+} 
+
+std::string PlaylistNode::GetSongName() const { 
+    return songName; 
+} 
+std::string PlaylistNode::GetArtistName() const { 
+    return artistName; 
+} 
   
