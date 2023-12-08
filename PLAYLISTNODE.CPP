@@ -1,3 +1,4 @@
+
 #include "PlaylistNode.h"  
 using namespace std;
 PlaylistNode::PlaylistNode() : uniqueID("none"), songName("none"), artistName("none"), songLength(0), nextNodePtr(nullptr) {}
@@ -81,3 +82,5 @@ void PlaylistNode::PrintPlaylistNode() const {
     std::cout << "Song Length (in seconds): " << songLength << std::endl << endl;
 
 }
+
+
