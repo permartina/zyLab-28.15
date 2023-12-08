@@ -1,83 +1,57 @@
-#include "PlaylistNode.h"  
-using namespace std;
-PlaylistNode::PlaylistNode() : uniqueID("none"), songName("none"), artistName("none"), songLength(0), nextNodePtr(nullptr) {}
+.H FILE
+
+#ifndef PLAYLISTNODE_H
+
+#define PLAYLISTNODE_H
+
+#include <iostream>
+
+#include <string>
 
  
 
-PlaylistNode::PlaylistNode(std::string id, std::string name, std::string artist, int length)
+class PlaylistNode {
 
-    : uniqueID(id), songName(name), artistName(artist), songLength(length), nextNodePtr(nullptr) {}
+public:
 
- 
+    PlaylistNode();
 
-std::string PlaylistNode::GetID() const {
-
-    return uniqueID;
-
-}
+    PlaylistNode(std::string uniqueID, std::string songName, std::string artistName, int songLength);
 
  
 
-std::string PlaylistNode::GetSongName() const {
+    std::string GetID() const;
 
-    return songName;
+    std::string GetSongName() const;
 
-}
+    std::string GetArtistName() const;
 
- 
+    int GetSongLength() const;
 
-std::string PlaylistNode::GetArtistName() const {
-
-    return artistName;
-
-}
+    PlaylistNode* GetNext() const;
 
  
 
-int PlaylistNode::GetSongLength() const {
+    void InsertAfter(PlaylistNode* nodePtr);
 
-    return songLength;
+    void SetNext(PlaylistNode* nodePtr);
 
-}
-
- 
-
-PlaylistNode* PlaylistNode::GetNext() const {
-
-    return nextNodePtr;
-
-}
+    void PrintPlaylistNode() const;
 
  
 
-void PlaylistNode::InsertAfter(PlaylistNode* nodePtr) {
+private:
 
-    PlaylistNode* tmpPtr = nextNodePtr;
+    std::string uniqueID;
 
-    nextNodePtr = nodePtr;
+    std::string songName;
 
-    nodePtr->nextNodePtr = tmpPtr;
+    std::string artistName;
 
-}
+    int songLength;
 
- 
+    PlaylistNode* nextNodePtr;
 
-void PlaylistNode::SetNext(PlaylistNode* nodePtr) {
+};  
 
-    nextNodePtr = nodePtr;
-
-}
-
- 
-
-void PlaylistNode::PrintPlaylistNode() const {
-
-    std::cout << "Unique ID: " << uniqueID << std::endl;
-
-    std::cout << "Song Name: " << songName << std::endl;
-
-    std::cout << "Artist Name: " << artistName << std::endl;
-
-    std::cout << "Song Length (in seconds): " << songLength << std::endl << endl;
-
-}
+#endif
